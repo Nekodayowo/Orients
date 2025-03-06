@@ -1,4 +1,4 @@
-package com.unknowncat.orients.data.user
+package com.unknowncat.orients.data.user.converter
 
 data class UserResponse(
     val id: Long,

@@ -8,5 +8,8 @@ class ApiVerify {
         fun generateToken(userId: String): String{
             return DigestUtils.sha256Hex(userId)
         }
+        fun verifyToken(userId: String, token: String): Boolean{
+            return generateToken(userId) == token
+        }
     }
 }

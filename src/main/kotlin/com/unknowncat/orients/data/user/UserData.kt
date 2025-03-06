@@ -15,4 +15,8 @@ class UserData(
     fun getUserByUsernameAndPassword(userId: Long, password: String): User? {
         return userRepository.findUserByIdAndPassword(userId, password)
     }
+
+    fun getUserByUsernameAndPassword(userId: String, password: String): User? {
+        return userRepository.findUserByIdAndPassword(userId.toLong(), password)
+    }
 }
