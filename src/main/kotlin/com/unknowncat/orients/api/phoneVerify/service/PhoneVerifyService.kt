@@ -16,8 +16,8 @@ class PhoneVerifyService {
         @Throws(Exception::class)
         fun createClient(): com.aliyun.dysmsapi20170525.Client {
             val config: Config = Config()
-                .setAccessKeyId(("LTAI5tQvbci6qqGbdei1jxA3"))
-                .setAccessKeySecret(("SUhzfOyyTLGr8NsKmmmJUTe1QYTWmg"))
+                .setAccessKeyId(("REPLACE"))
+                .setAccessKeySecret(("REPLACE"))
             config.endpoint = "dysmsapi.aliyuncs.com"
             return com.aliyun.dysmsapi20170525.Client(config)
         }
