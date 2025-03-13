@@ -6,10 +6,11 @@ import org.springframework.stereotype.Repository
 
 
 @Repository
-abstract class UserRepository: JpaRepository<User, Long> {
+interface UserRepository: JpaRepository<User, Long> {
     @Query(
         value = "select * from user where user.id = :userId and user.password = :password",
         nativeQuery = true
     )
-    abstract fun findUserByIdAndPassword(userId: Long, password: String): User?
+    fun findUserByIdAndPassword(userId: Long, password: String): User?
+    fun findUserByUsername(username: String): MutableList<User>
 }

@@ -28,7 +28,7 @@ data class User(
     @Column val finishedProjectId: List<String> = arrayListOf(),
 
     @Convert(converter = StringListConverter::class)
-    @Column val activeProjectId: List<String> = arrayListOf(),
+    @Column val activeProjectId: ArrayList<String> = arrayListOf(),
 
     @Convert(converter = StringListConverter::class)
     @Column val createdProjectId: List<String> = arrayListOf(),

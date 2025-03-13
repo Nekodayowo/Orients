@@ -43,9 +43,17 @@ class TypeIdService(private val typeIdRepository: TypeIdRepository) {
         typeIdRepository.saveAll(addList)
     }
 
-    fun isPathExists(typePath: String): Boolean {
-        val pureTypePath = typePath.replace("#", "")
-
+    fun isTypeIdExist(id: String): Boolean {
+        val pureId = id.replace("#", "")
+        val first  = pureId.substring(0, 2)
+        val second = pureId.substring(2, 4)
+        val third  = pureId.substring(4, 6)
+        val forth  = pureId.substring(6, 8)
+        if(!typeIdRepository.existsById (first)) return false
+        if(!typeIdRepository.existsById (forth)) return false
+        if(!typeIdRepository.existsById (third)) return false
+        if(!typeIdRepository.existsById(second)) return false
+        return true
     }
 
     fun addTypeId(typeId: TypeId) {

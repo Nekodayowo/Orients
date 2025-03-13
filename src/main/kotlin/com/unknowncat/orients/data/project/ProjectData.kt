@@ -12,7 +12,7 @@ class ProjectData(
     }
 
     fun getProjectInfoByProjectName(projectName: String): Project? {
-        return projectRepository.findByProjectName(projectName)
+        return projectRepository.findByName(projectName)
     }
 
     fun searchProject(projectName: String): MutableList<Project> {

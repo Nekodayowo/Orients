@@ -8,7 +8,7 @@ import jakarta.persistence.Table
 
 @Entity
 @Table(name = "typeid")
-data class TypeId(
+data class  TypeId(
     @Id val id: String,
     @Column val name: String,
     @Column val parentTypeId: String

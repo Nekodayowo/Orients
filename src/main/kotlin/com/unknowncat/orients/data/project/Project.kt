@@ -1,6 +1,8 @@
 package com.unknowncat.orients.data.project
 
+import com.unknowncat.orients.data.converter.StringListConverter
 import jakarta.persistence.Column
+import jakarta.persistence.Convert
 import jakarta.persistence.Entity
 import jakarta.persistence.Id
 import jakarta.persistence.Table
@@ -16,9 +18,9 @@ data class Project(
 
     @Column val createUserId: Long,
 
-    @Column val activeUserId: Long, //接手用户id
+    @Column var activeUserId: Long, //接手用户id
 
-    @Column val projectState: Int, //项目状态 0-待接手 1-进行中 2-已完成 3-审核中 4-已删除
+    @Column var projectState: Int, //项目状态 0-待接手 1-进行中 2-已完成 3-审核中 4-已删除 5-审核未通过
     /*
     typeId 项目分类id
 
@@ -43,7 +45,17 @@ data class Project(
 
     @Column val createdTime: Long = System.currentTimeMillis(),
 
-    @Column val latestUpdateTime: Long = System.currentTimeMillis(),
+    @Column var latestUpdateTime: Long = System.currentTimeMillis(),
 
     @Column val publishLocation: String,
-)
+
+    @Convert(converter = StringListConverter::class)
+    @Column val difficult: ArrayList<String> = arrayListOf(), //前端Lv7,后端Lv8
+
+    @Convert(converter = StringListConverter::class)
+    @Column val attaches: ArrayList<String> = arrayListOf(), //URL:http://.....jpg/,DESC:文字附件
+
+    @Column var releaseUrl: String = "",
+
+    @Column var notPassReason : String = "",
+    )
